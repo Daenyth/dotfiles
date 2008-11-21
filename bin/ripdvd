@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Dvd2Avi 0.2
+# Only does one title at a time, but "avimerge" from Transcode
+# can sort it from there.
+
+# by yyz
+# Modified by Daenyth 2008-05-25
+
+read -p "Enter the name of output file (without extension): " FILE
+read -p "Enter the title you wish to rip (leave blank to rip longest track: " TITLE
+#read -p "Select a quality level (h/n/l) [n]: " Q
+echo ''
+
+#bitrate=
+#xydims=
+#case Q in 
+#	h) 
+#		bitrate=320
+#		xydims=800
+#		;;
+#	l) 
+#		bitrate=96
+#		xydims=320
+#		;;
+#	*)
+#		bitrate=160
+#		xydims=640
+#		;;
+#esac
+
+#mencoder dvd://$TITLE -alang en -oac mp3lame -lameopts br=$bitrate:cbr -ovc lavc -lavcopts vcodec=mpeg4:vhq -vf scale -zoom -xy $xydims -o "$FILE.avi" > /dev/null
+mencoder dvd://$TITLE -ovc xvid -xvidencopts pass=1 -alang en -oac copy -o /dev/null
+mencoder dvd://$TITLE -ovc xvid -xvidencopts pass=2:bitrate=1000 -alang en -oac mp3lame -lameopts vbr=3 -o ${FILE}.avi
+echo "Done"
+exit 0

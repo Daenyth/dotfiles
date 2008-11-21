@@ -1,0 +1,12 @@
+#!/bin/bash
+screen -t irc
+screen -t music
+sleep 1
+screen -t shell
+screen -t web
+sleep 1
+screen -t IM
+screen -t shell
+sleep 1
+screen -t torrent
+screen -t X

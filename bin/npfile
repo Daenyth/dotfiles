@@ -1,0 +1,8 @@
+#!/usr/bin/perl -w
+use strict;
+use URI::Escape;
+use feature 'say';
+my $filename = `mpc --format %file% | head -n 1`;
+chomp $filename;
+my $baseurl = 'https://muspelheimr.no-ip.org/Media/Music/';
+say $baseurl, uri_escape($filename);

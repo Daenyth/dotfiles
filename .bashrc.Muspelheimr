@@ -1,0 +1,13 @@
+
+
+# aurcheckout() -- Update from community repo {{{
+aurcheckout () {
+        export CVSROOT=":pserver:daenyth@cvs.archlinux.org:/home/cvs-community"
+        pushd ~/builds/community &> /dev/null || return 1
+        cvs login || return 1
+        #cvs co community
+	cvs up
+	popd &> /dev/null
+
+}
+# }}}

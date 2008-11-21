@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/.wine/drive_c/Program\ Files/NetDraft
+wine idraft.exe

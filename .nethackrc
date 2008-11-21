@@ -1,0 +1,28 @@
+OPTIONS=showexp,showscore,time,color,!autopickup,hilite_pet
+OPTIONS=boulder:0
+
+#OPTIONS=msg_window:reversed
+
+OPTIONS=number_pad:1
+
+OPTIONS=suppress_alert:3.4.3
+OPTIONS=disclose:+i ya nv ng -c
+
+# The following are options not in vanilla NetHack:
+#
+#
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+#MENUCOLOR=" (being worn)"=bold
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+MENUCOLOR=" corpse "=brown
+
+OPTIONS=statuscolors
+STATUSCOLOR=hp%100=white,hp%95=green,hp%65=yellow,hp%50=orange
+STATUSCOLOR=hp%30=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
+STATUSCOLOR=blind:yellow
+
+#OPTIONS=sortloot:loot

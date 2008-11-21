@@ -1,0 +1,17 @@
+#!/bin/bash
+DEFAULTZIP=02138
+
+getforecast() {
+	echo "Your 10 Day Weather Forecast as follows:"
+	echo "Day, Weather, Deg F, Precip. %"
+	links -dump "http://www.weather.com/weather/print/$1" | perl -ne '/\d %\s+$/ && s/DEG//g && print'
+	echo ""
+}
+
+if   [ $# -eq 1 ]; then
+	if (echo "$1" | egrep -q '^[0-9][0-9][0-9][0-9][0-9]$'); then
+		getforecast $1
+	fi
+else 
+	getforecast $DEFAULTZIP
+fi

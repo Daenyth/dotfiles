@@ -1,0 +1,12 @@
+#!/bin/bash
+album="$(mpc --format %album% | head -n 1)"
+if [ -z "$album" ]; then
+	next_trackno=$(mpc playlist --format %album% | grep -A200 '^>' | grep -m1 -v -E '^( |>)[0-9]+\) *$' | cut -d')' -f1)
+else
+	next_trackno=$(mpc playlist --format %album% | grep -A200 '^>' | grep -m1 -v -F "$album" | cut -d')' -f1)
+fi
+if [ -z "$next_trackno" ]; then
+	mpc next
+else
+	mpc play $next_trackno
+fi

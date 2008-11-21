@@ -1,0 +1,36 @@
+#!/bin/bash
+
+###
+# Coded by Daenyth (daenyth@gmail.com)
+#
+# Set your wallpaper to a random file in the specified folder.
+# Note that the only files that should be in the 
+#   wallpaper folder are ones that will work as wallpapers
+###
+
+wallpaperdir="${HOME}/wallpaper/16x10"
+setpaper="/usr/bin/fbsetbg -a"
+finder="/usr/bin/find" 
+simulate=0
+
+###
+# -r to search subdirectories too
+# -p to search only pwd
+# -d to specify the base directory
+###
+while getopts d:rps flags 
+do
+	case "$flags" in
+		d)	wallpaperdir="$OPTARG";;
+		r)	findargs="";;
+		p)	findargs="-maxdepth 1";;
+		s)	simulate=1 ;;
+		[?])	echo >&2 "Usage: $(basename $0) [-r|p] [-d wallpaperdir]"
+			exit 1;;
+	esac
+done
+
+# Lights, camera, ACTION!
+paper="$($finder "$wallpaperdir" -type f $findargs | LC_ALL=C sort -R | head -n 1)"
+echo "$paper"
+[ $simulate -eq 0 ] && $setpaper "$paper"

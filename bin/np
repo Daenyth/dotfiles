@@ -1,0 +1,3 @@
+#!/bin/bash
+#export MPD_HOST=niflheimr
+mpc --format "np: [[%artist%] - [%title%] - #[[%album%] ##[%track%]#]]|[%file%]" | head -n 1

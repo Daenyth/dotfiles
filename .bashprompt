@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# vim: fdm=marker ts=8 et:
+####
+# Modified from tldp.org by Daenyth
+##
+
+usecolorprompt=1
+
+# ssh_conn() -- return 1 if connected locally, 0 otherwise {{{
+function ssh_conn() {
+	local SSH_FLAG=1
+	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
+	  SSH_FLAG=0
+	fi
+	return $SSH_FLAG
+}
+# }}}
+
+# root_privs() -- return 1 if not root, 0 if root {{{
+function root_privs() {
+	PRIV=1
+	if [ `/usr/bin/id -u` -eq 0 ]; then
+		PRIV=0
+	fi
+	return $PRIV
+}
+# }}}
+
+if ssh_conn ; then		# Locally connected
+  CONNHILIGHT="$red"
+else				# Connected remotely
+  CONNHILIGHT="$blue"
+fi
+
+if root_privs ; then
+  USRHILIGHT="$red"
+  PWDHILIGHT="$NC"
+else
+  PWDHILIGHT="$GREEN"
+  USRHILIGHT="$cyan"
+fi
+
+colorprompt="\u${CONNHILIGHT}@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
+nocolorprompt="\u@\h \W \\\$ "
+
+if [ $usecolorprompt -eq 1 ]; then
+	PS1="$colorprompt"
+else
+	PS1="$nocolorprompt"
+fi
+
+unset usecolorprompt
+unset -f ssh_conn
+unset -f root_privs
+export PS1

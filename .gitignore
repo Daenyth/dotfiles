@@ -1,0 +1,32 @@
+# Start by excluding all files.
+*
+
+# Unignore my scripts
+!/bin/*
+
+# git stuff
+!.gitignore
+!.gitconfig
+!.gitshrc
+
+# system-related configs
+!.alunn.conf
+!.inputrc
+!.xinitrc
+!.Xdefaults
+!.fluxbox/
+
+# Shell configs
+!.bashrc
+!.bashrc.Muspelheimr
+!.bashprompt
+
+# CLI util configs
+!.screenrc
+!.vimrc
+!.ncmpc/config
+
+# Games
+!.tremulous/
+!.nethackrc
+

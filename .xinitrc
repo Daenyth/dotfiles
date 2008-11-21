@@ -1,0 +1,2 @@
+exec startfluxbox
+#exec startkde
