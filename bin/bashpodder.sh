@@ -54,7 +54,7 @@ sort temp.log | uniq > $log
 rm temp.log
 
 # Create an m3u playlist:
-pods=`ls $datadir | grep -v m3u | wc -l`
+pods=`ls $datadir | grep -cv '\.m3u$'`
 if [ $pods -ne 0 ]; then
 	if [ $pods -gt 1 ]; then
 		[[ $loud -eq 1 ]] && echo "Creating playlist"
