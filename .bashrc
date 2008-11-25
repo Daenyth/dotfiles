@@ -146,7 +146,7 @@ shopt -s cmdhist
 shopt -s histappend histreedit histverify
 export HISTFILESIZE=500000
 export HISTSIZE=100000
-export HISTIGNORE='&:cd:ls:bin/ss'
+export HISTIGNORE='&:cd:ls:bin/ss;history *'
 export HISTCONTROL='ignoreboth'
 shopt -s extglob	# necessary for programmable completion
 shopt -s nocaseglob	# Case-insensitive globbing
