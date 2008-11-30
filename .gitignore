@@ -6,7 +6,6 @@
 
 # git stuff
 !.gitignore
-!.gitconfig
 !.gitshrc
 
 # system-related configs
