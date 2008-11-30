@@ -8,3 +8,8 @@ set shiftwidth=8
 filetype plugin indent on
 set mouse=hvi
 syntax enable
+
+" Highlight trailing whitespace and tabs
+highlight link RedundantSpaces Error
+au BufEnter,BufRead * match RedundantSpaces "\t"
+au BufEnter,BufRead * match RedundantSpaces "[[:space:]]\+$"
