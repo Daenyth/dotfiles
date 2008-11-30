@@ -20,9 +20,9 @@ MENUCOLOR=" unholy "=red
 MENUCOLOR=" cursed .* (being worn)"=orange&underline
 MENUCOLOR=" corpse "=brown
 
-OPTIONS=statuscolors
-STATUSCOLOR=hp%100=white,hp%95=green,hp%65=yellow,hp%50=orange
-STATUSCOLOR=hp%30=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
-STATUSCOLOR=blind:yellow
+#OPTIONS=statuscolors
+#STATUSCOLOR=hp%100=white,hp%95=green,hp%65=yellow,hp%50=orange
+#STATUSCOLOR=hp%30=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
+#STATUSCOLOR=blind:yellow
 
 #OPTIONS=sortloot:loot
