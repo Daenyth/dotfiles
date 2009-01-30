@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xinit ~/enemy-territory/et -- :1
