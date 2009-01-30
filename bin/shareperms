@@ -5,3 +5,6 @@ find -L "${HOME}/Media" -type d -exec chmod 755 {} \;
 #find -L "${HOME}/Media" -type f -name 'Torrent downloaded from Demonoid.com.txt' -delete
 find -L "${HOME}/Media" -type f -name 'Thumbs.db' -delete
 find -L "${HOME}/Media" -type f -name 'desktop.ini' -delete
+
+# Prete is a local artist who I know personally, so I'm not sharing his stuff.
+chmod 700 "${HOME}/Media/Music/Andrew Prete"
