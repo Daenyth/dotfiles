@@ -5,6 +5,6 @@ use feature 'say';
 my $filename = `mpc --format %file% | head -n 1`;
 chomp $filename;
 $filename = uri_escape($filename);
-$filename =~ s/%2F/\//g;
+$filename =~ s|%2F|/|g;
 my $baseurl = 'https://muspelheimr.no-ip.org/Media/Music/';
 say $baseurl, $filename;
