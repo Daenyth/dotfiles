@@ -2,8 +2,6 @@
 use strict;
 use warnings;
 
-
-
 open( MPC, "-|", "mpc playlist --format '%time% %artist%'" )
     or die "Unable to open mpc: $!\n";
 
@@ -15,7 +13,7 @@ while (<MPC>) {
 
 	$stats{$artist}->{time} += $min * 60 + $sec; # Time is in seconds
 	$stats{$artist}->{number}++;
-} 
+}
 
 foreach my $artist (sort {$stats{$b}->{time} <=> $stats{$a}->{time}} keys %stats) {
 	my @parts = gmtime($stats{$artist}->{time});
