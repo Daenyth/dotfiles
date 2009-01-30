@@ -92,6 +92,7 @@
         [exec] (thunar) {thunar}
         [exec] (kdirstat) {kdirstat}
         [exec] (gtkpod) {gtkpod}
+        [exec] (digikam) {digikam}
       [exec] (konqueror) {kfmclient openProfile filemanagement} 
 [end]
 
@@ -172,8 +173,6 @@
 
 [end]
       [separator]
-      [exec] (Enemy Territory) {et} 
-      [exec] (Planeshift) {/home/Daenyth/bin/planeshift.sh}
       [exec] (Savage) {/home/Daenyth/bin/savage.sh} </usr/share/pixmaps/Savage.xpm>
       [exec] (Tremulous) {/home/Daenyth/bin/trem.sh}
 [end]
