@@ -6,15 +6,15 @@ if [[ $- != *i* ]] ; then
 fi
 
 # First we pull things from various config files {{{
-[[ -f /etc/bashrc ]] &&     . /etc/bashrc   
+[[ -f /etc/bashrc ]] &&     . /etc/bashrc
 
-[[ -f /etc/profile ]] &&    . /etc/profile   
+[[ -f /etc/profile ]] &&    . /etc/profile
 
 [[ -f ~/.dir_colors ]] &&   eval `dircolors ~/.dir_colors`
 
 [[ -f /sw/bin/init.sh ]] &&      . /sw/bin/init.sh # Are we running a fink environment?
 
-[[ -f /etc/bash_completion ]] && . /etc/bash_completion 
+[[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
 [[ -f ~/.mpcconf ]] && . ~/.mpcconf
 
@@ -125,8 +125,8 @@ function ask()
 # }}}
 
 # weather() -- Check weather {{{
-function weather () 
-{ 
+function weather ()
+{
     links -dump "http://google.com/search?q=weather+${1:-02135}" | grep -A 5 -m 1 '^ *Weather for' | grep -v 'Add to'
 }
 # }}}
@@ -169,8 +169,8 @@ ulimit -S -c 0      # Don't want any coredumps
 set -o notify       # Tell me about background jobs right away
 shopt -s cdspell    # I make typos sometimes
 shopt -s checkhash
-shopt -s checkwinsize   
-shopt -s sourcepath 
+shopt -s checkwinsize
+shopt -s sourcepath
 shopt -s no_empty_cmd_completion  # bash>=2.04 only
 shopt -s cmdhist
 shopt -s histappend histreedit histverify
@@ -193,7 +193,7 @@ alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias path='echo -e ${PATH//:/\\n}'
 alias lsusers='getent passwd | awk -F : "\$3 >= $(grep UID_MIN /etc/login.defs | cut -d " " -f 2) { print \$1 }" | sort'
-case `uname` in 
+case `uname` in
     Linux)
         alias ls='ls -hF --color=auto' ;
         alias lsd='ls -dAFh --color=auto .[^.]*'; # ls Dotfiles
@@ -206,7 +206,7 @@ case `uname` in
     ;;
 esac
 
-have tree && alias tree='tree -Chs' 
+have tree && alias tree='tree -Chs'
 
 have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
 have less && alias more='less'
