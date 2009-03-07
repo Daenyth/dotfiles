@@ -1,18 +1,18 @@
 # ~/.bashrc
 
 if [[ $- != *i* ]] ; then
-         # Shell is non-interactive.  Be done now!
-         return
+     # Shell is non-interactive.  Be done now!
+     return
 fi
 
 # First we pull things from various config files {{{
-[[ -f /etc/bashrc ]] && 	. /etc/bashrc   
+[[ -f /etc/bashrc ]] &&     . /etc/bashrc   
 
-[[ -f /etc/profile ]] && 	. /etc/profile   
+[[ -f /etc/profile ]] &&    . /etc/profile   
 
-[[ -f ~/.dir_colors ]] &&	eval `dircolors ~/.dir_colors`
+[[ -f ~/.dir_colors ]] &&   eval `dircolors ~/.dir_colors`
 
-[[ -f /sw/bin/init.sh ]] && 	. /sw/bin/init.sh # Are we running a fink environment?
+[[ -f /sw/bin/init.sh ]] &&      . /sw/bin/init.sh # Are we running a fink environment?
 
 [[ -f /etc/bash_completion ]] && . /etc/bash_completion 
 
@@ -27,7 +27,7 @@ blue='\[\e[0;34m\]'
 BLUE='\[\e[1;34m\]'
 cyan='\[\e[0;36m\]'
 CYAN='\[\e[1;36m\]'
-NC='\[\e[0m\]'              # No Color
+NC='\[\e[0m\]'          # No Color
 black='\[\e[0;30m\]'
 BLACK='\[\e[1;30m\]'
 green='\[\e[0;32m\]'
@@ -57,8 +57,8 @@ function ll(){ ls -l "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| egrep -v "^d|total ";
 #    while getopts :it opt
 #    do
 #        case "$opt" in
-#        i) case="-i " ;;
-#        *) echo "$usage"; return;;
+#            i) case="-i " ;;
+#            *) echo "$usage"; return;;
 #        esac
 #    done
 #    shift $(( $OPTIND - 1 ))
@@ -165,12 +165,12 @@ ex() {
 
 # Set some bash options {{{
 umask 077
-ulimit -S -c 0		# Don't want any coredumps
-set -o notify 		# Tell me about background jobs right away
-shopt -s cdspell	# I make typos sometimes
+ulimit -S -c 0      # Don't want any coredumps
+set -o notify       # Tell me about background jobs right away
+shopt -s cdspell    # I make typos sometimes
 shopt -s checkhash
-shopt -s checkwinsize	
-shopt -s sourcepath	
+shopt -s checkwinsize   
+shopt -s sourcepath 
 shopt -s no_empty_cmd_completion  # bash>=2.04 only
 shopt -s cmdhist
 shopt -s histappend histreedit histverify
@@ -178,11 +178,11 @@ export HISTFILESIZE=500000
 export HISTSIZE=100000
 export HISTIGNORE='&:cd:ls:bin/ss;history *'
 export HISTCONTROL='ignoreboth'
-shopt -s extglob	# necessary for programmable completion
-shopt -s nocaseglob	# Case-insensitive globbing
-shopt -s progcomp	# Programmable completion is FUN
+shopt -s extglob    # necessary for programmable completion
+shopt -s nocaseglob # Case-insensitive globbing
+shopt -s progcomp   # Programmable completion is FUN
 shopt -u mailwarn
-unset MAILCHECK		# I don't want my shell to warn me of incoming mail
+unset MAILCHECK     # I don't want my shell to warn me of incoming mail
 # }}}
 
 # Aliases {{{
@@ -194,59 +194,59 @@ alias mkdir='mkdir -p'
 alias path='echo -e ${PATH//:/\\n}'
 alias lsusers='getent passwd | awk -F : "\$3 >= $(grep UID_MIN /etc/login.defs | cut -d " " -f 2) { print \$1 }" | sort'
 case `uname` in 
-	Linux)
-		alias ls='ls -hF --color=auto' ;
-		alias lsd='ls -dAFh --color=auto .[^.]*'; # ls Dotfiles
-		alias lst="ls -hFtl --color=auto | grep $(date +%Y-%m-%d)" #ls Today
-	;;
-	Darwin|*BSD)
-		alias ls='ls -hFG';
-		alias lsd='ls -dAFhG .[^.]*'; # ls Dotfiles
-		alias lst="ls -hFtlG | grep $(date +%Y-%m-%d)"
-	;;
+    Linux)
+        alias ls='ls -hF --color=auto' ;
+        alias lsd='ls -dAFh --color=auto .[^.]*'; # ls Dotfiles
+        alias lst="ls -hFtl --color=auto | grep $(date +%Y-%m-%d)" #ls Today
+    ;;
+    Darwin|*BSD)
+        alias ls='ls -hFG';
+        alias lsd='ls -dAFhG .[^.]*'; # ls Dotfiles
+        alias lst="ls -hFtlG | grep $(date +%Y-%m-%d)"
+    ;;
 esac
 
-have tree && alias tree='tree -Chs'	
+have tree && alias tree='tree -Chs' 
 
 have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
 have less && alias more='less'
 
 if have git; then
-        alias gcom='git commit -s'
+    alias gcom='git commit -s'
 fi
 # }}}
 
 # Environment variables {{{
 if have less; then
-	export PAGER='less'
-	unset LESSCHARSET # Fix manpages looking funky
-	export LESS='--ignore-case --line-numbers --hilite-unread  -z-4 --hilite-search --LONG-PROMPT --no-init --quit-if-one-screen --quit-on-intr'
-        # Colorizzed less, woohoo
-        export LESS_TERMCAP_mb=$'\E[01;31m'
-        export LESS_TERMCAP_md=$'\E[01;31m'
-        export LESS_TERMCAP_me=$'\E[0m'
-        export LESS_TERMCAP_se=$'\E[0m'
-        export LESS_TERMCAP_so=$'\E[01;44;33m'
-        export LESS_TERMCAP_ue=$'\E[0m'
-        export LESS_TERMCAP_us=$'\E[01;32m'
+    export PAGER='less'
+    unset LESSCHARSET # Fix manpages looking funky
+    export LESS='--ignore-case --line-numbers --hilite-unread  -z-4 --hilite-search --LONG-PROMPT --no-init --quit-if-one-screen --quit-on-intr'
+    # Colorizzed less, woohoo
+    export LESS_TERMCAP_mb=$'\E[01;31m'
+    export LESS_TERMCAP_md=$'\E[01;31m'
+    export LESS_TERMCAP_me=$'\E[0m'
+    export LESS_TERMCAP_se=$'\E[0m'
+    export LESS_TERMCAP_so=$'\E[01;44;33m'
+    export LESS_TERMCAP_ue=$'\E[0m'
+    export LESS_TERMCAP_us=$'\E[01;32m'
 elif have most; then
-	export PAGER='most'
+    export PAGER='most'
 else
-	export PAGER='more'
+    export PAGER='more'
 fi
 export EDITOR='vim'
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export OOO_FORCE_DESKTOP=gnome # Needed by OOo 3 or it crashes.
 export BROWSER='firefox -new-tab'
 if have nethack; then
-        if [ -f ~/.nethackrc ]; then
-                export NETHACKOPTIONS="@${HOME}/.nethackrc"
-        else
-                export NETHACKOPTIONS="!autopickup,number_pad:1,color" # Set some but not all of my options, if I don't have a dedicated file
-        fi
+    if [ -f ~/.nethackrc ]; then
+        export NETHACKOPTIONS="@${HOME}/.nethackrc"
+    else
+        export NETHACKOPTIONS="!autopickup,number_pad:1,color" # Set some but not all of my options, if I don't have a dedicated file
+    fi
 fi
 if have raggle; then
-        RAGGLE_BROWSER=ELINKS
+    RAGGLE_BROWSER=ELINKS
 fi
 # }}}
 
@@ -260,7 +260,7 @@ fi
 
 # Fix $PATH if it not already fixed {{{
 if echo $PATH | awk "/:?$(echo "${HOME}/bin" | sed 's;/;\\/;g'):?/" &> /dev/null; then
-        PATH="${PATH}:${HOME}/bin"
+    PATH="${PATH}:${HOME}/bin"
 fi
 # }}}
 
@@ -271,4 +271,4 @@ have /usr/bin/fortune && /usr/bin/fortune -c     # makes our day a bit more fun.
 echo
 # }}}
 
-# vim: fdm=marker ts=8 et:
+# vim: fdm=marker ts=4 sw=4 et:
