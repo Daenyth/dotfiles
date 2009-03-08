@@ -161,6 +161,16 @@ ex() {
 }
 # }}}
 
+# rot13() {{{
+rot13 () {              # For some reason, rot13 pops up everywhere
+    if [ $# -eq 0 ]; then
+        tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+    else
+        echo $* | tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'
+    fi
+}
+# }}}
+
 # }}}1
 
 # Set some bash options {{{
