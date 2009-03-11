@@ -13,3 +13,6 @@ syntax enable
 highlight link RedundantSpaces Error
 au BufEnter,BufRead * match RedundantSpaces "\t"
 au BufEnter,BufRead * match RedundantSpaces "[[:space:]]\+$"
+
+" Set default sh to bash
+let g:is_sh	   = 1
