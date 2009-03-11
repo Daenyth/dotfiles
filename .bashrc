@@ -222,9 +222,6 @@ have tree && alias tree='tree -Chs'
 have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
 have less && alias more='less'
 
-if have git; then
-    alias gcom='git commit -s'
-fi
 # }}}
 
 # Environment variables {{{
