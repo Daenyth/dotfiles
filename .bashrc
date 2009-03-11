@@ -229,7 +229,7 @@ if have less; then
     export PAGER='less'
     unset LESSCHARSET # Fix manpages looking funky
     export LESS='--ignore-case --line-numbers --hilite-unread  -z-4 --hilite-search --LONG-PROMPT --no-init --quit-if-one-screen --quit-on-intr'
-    # Colorizzed less, woohoo
+    # Colorized less, woohoo
     export LESS_TERMCAP_mb=$'\E[01;31m'
     export LESS_TERMCAP_md=$'\E[01;31m'
     export LESS_TERMCAP_me=$'\E[0m'
