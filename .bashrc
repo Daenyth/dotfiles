@@ -84,11 +84,7 @@ function swap()
 }
 # }}}
 
-# my_ip() -- get my internal IP address || ii() -- internet info {{{
-function my_ip() # get IP adresses
-{
-    MY_IP=$(/sbin/ifconfig ath0 | awk '/inet/ { print $2 } ' | sed -e s/addr://)
-}
+# ii() -- internet info {{{
 function ii()   # get current host related info
 {
     echo -e "\nYou are logged on ${RED}$HOST"
@@ -97,7 +93,7 @@ function ii()   # get current host related info
     echo -e "\n${RED}Current date :$NC " ; date
     echo -e "\n${RED}Machine stats :$NC " ; uptime
     echo -e "\n${RED}Memory stats :$NC " ; free
-    my_ip 2>&- ;
+    MY_IP=$(/sbin/ifconfig ath0 | awk '/inet/ { print $2 } ' | sed -e s/addr://)
     echo -e "\n${RED}Local IP Address :$NC" ; echo ${MY_IP:-"Not connected"}
     echo
 }
