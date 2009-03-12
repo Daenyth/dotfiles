@@ -44,6 +44,10 @@ fi
 colorprompt="\u${CONNHILIGHT}@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
 nocolorprompt="\u@\h \W \\\$ "
 
+# Prompt shamelessly stolen from http://bbs.archlinux.org/viewtopic.php?pid=514024#p514024
+#PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-15}; else CurDir=$DIR; fi'
+#PS1="\n╔═[\[\033[01;36m\]\A\[\033[01;00m\]]═[\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;31m\]\h\[\033[01;00m\]]\n\[\033[01;00m\]╚═══\[\033[00;32m\]=\[\033[00;33m\]=\[\033[00;31m\]=\[\033[01;00m\]═══[\[\033[01;36m\]\$CurDir\[\033[01;00m\]]\[\033[01;32m\]>>\[\033[00m\] "
+
 if [ $usecolorprompt -eq 1 ]; then
 	PS1="$colorprompt"
 else
