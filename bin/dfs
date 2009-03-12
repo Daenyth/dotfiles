@@ -1,3 +1,3 @@
 #!/bin/bash
 # dfs - df summary
-df -Pkl | perl -ane 'if (m|^/dev/|) { $total += $F[1]; $used += $F[2] } }{ printf "%0.2f/%0.2f GB (%0.1f%%) used\n", $used / 1024**2, $total / 1024**2, $used / $total * 100;'
+df -Pkl | perl -ane 'if (m|^/dev/sda4|) { $total += $F[1]; $used += $F[2] } }{ printf "%0.2f/%0.2f GB (%0.1f%%) used\n", $used / 1024**2, $total / 1024**2, $used / $total * 100;'
