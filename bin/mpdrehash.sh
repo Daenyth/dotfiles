@@ -14,7 +14,7 @@ mpd_update () {
 mkplaylist () {
 	echo "Remaking playlist."
 	mpc --no-status clear
-	mpc --no-status ls | mpc --no-status add >/dev/null
+	mpc --no-status add / >/dev/null
 }
 
 sortplaylist () {
