@@ -168,6 +168,11 @@ rot13 () {              # For some reason, rot13 pops up everywhere
 }
 # }}}
 
+# isprime() -- Is $1 prime? {{{
+isprime () {
+    perl -wle 'print "Prime" if (1 x shift) !~ /^1?$|^(11+?)\1+$/'
+}
+
 # }}}1
 
 # Set some bash options {{{
