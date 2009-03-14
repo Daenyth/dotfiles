@@ -1,0 +1,8 @@
+#!/bin/bash
+local ossdevs="/dev/admmidi* /dev/adsp* /dev/amidi* /dev/audio* /dev/dmfm* \
+		/dev/dmmidi* /dev/dsp* /dev/dspW* /dev/midi0* /dev/mixer* /dev/music \
+		/dev/patmgr* /dev/sequencer* /dev/sndstat"
+local alsadevs="/proc/asound/dev/* /dev/sound/* /dev/snd/*"
+fuser -k ${ossdevs} ${alsadevs} 
+
+[ -f /proc/asound/seq/clients ] && type aconnect >/dev/null 2>/dev/null && aconnect --removeall
