@@ -172,6 +172,15 @@ rot13 () {              # For some reason, rot13 pops up everywhere
 isprime () {
     perl -wle 'print "Prime" if (1 x shift) !~ /^1?$|^(11+?)\1+$/'
 }
+# }}}
+
+# shquot() -- Escape a filename properly {{{
+shquot () {
+    # http://plasmasturm.org/log/293/
+    quoted=${0/\'/\'\\\'\'}
+    echo "'$quoted'"
+}
+# }}}
 
 # }}}1
 
