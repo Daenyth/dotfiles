@@ -20,7 +20,7 @@ given ($command) {
 		$mpd->playlist->deleteid( $mpd->current->id );
 	}
 	when ('save') {
-		my $playlist = shift;
+		my $playlist = shift || 'main';
 		update_playlist( $playlist );
 	}
 	when ('prune') {
