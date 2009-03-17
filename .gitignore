@@ -25,6 +25,7 @@
 !.vimrc
 !.ncmpc/config
 !.bashpodder/*
+!.rtorrent.rc
 
 # Games
 !.tremulous/
