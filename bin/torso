@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# torso -- The missing link between `head` and `tail`
+
+# Usage: torso N [-n M] [FILE]
+# Prints M lines (default 10) from FILE (or STDIN if FILE is not given), starting at line N
+
 if [ -z "$1" ]; then
 	echo "ERROR: Bad arguments"
 	exit 1
