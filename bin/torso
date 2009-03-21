@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	echo "ERROR: Bad arguments"
+	exit 1
+fi
+
+startline=$1; shift
+skiplines=10
+filename=''
+
+OPT_SHORT='n:'
+OPT_TEMP="$(getopt -o "$OPT_SHORT" -n torso -- "$@" || echo 'GETOPT GO BANG!')"
+if echo "$OPT_TEMP" | grep -q 'GETOPT GO BANG!'; then
+        exit 1
+fi
+eval set -- "$OPT_TEMP"
+unset OPT_SHORT OPT_TEMP
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+		-n) skiplines=$2 ;;
+		*) filename="$1" ;;
+	esac
+	shift
+done
+endline=$(expr $startline + $skiplines)
+
+if [ -z "$filename" ]; then
+	sed -n "$startline,${endline}p"
+else
+	sed -n "$startline,${endline}p" "$filename"
+fi
