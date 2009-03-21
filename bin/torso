@@ -35,6 +35,6 @@ while [ $# -gt 0 ]; do
 	esac
 	shift
 done
-endline=$(expr $startline + $skiplines)
+endline=$(expr $startline + $skiplines - 1)
 
 sed -n "$startline,${endline}p" "$filename"
