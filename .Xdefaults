@@ -5,5 +5,5 @@ URxvt*urlLauncher: firefox
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher
 URxvt*urgentOnBell:    true
-URxvt*font: 9x15, xft:Code2000:antialias=false
+URxvt*font: 9x15, xft:Code2000:antialias=true
 
