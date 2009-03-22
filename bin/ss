@@ -2,7 +2,7 @@
 screen -t irc
 screen -t music
 sleep 1
-screen -t shell
+screen -t shell bash --rcfile /usr/bin/git-sh
 screen -t web
 sleep 1
 screen -t IM
