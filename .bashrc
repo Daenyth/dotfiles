@@ -284,8 +284,9 @@ fi
 
 # Display stuff after login {{{
 date
+have pom && pom
 echo
-have /usr/bin/fortune && /usr/bin/fortune -c     # makes our day a bit more fun.... :-)
+have fortune && fortune -c
 echo
 # }}}
 
