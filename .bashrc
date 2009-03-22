@@ -178,6 +178,7 @@ isprime () {
 shquot () {
     # http://plasmasturm.org/log/293/
     quoted=${0/\'/\'\\\'\'}
+    # 'Github syntax highlighting breaks on the above line, heh. Quoted here to fix it
     echo "'$quoted'"
 }
 # }}}
