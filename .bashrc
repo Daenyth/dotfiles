@@ -207,7 +207,7 @@ unset MAILCHECK     # I don't want my shell to warn me of incoming mail
 # }}}
 
 # Aliases {{{
-alias rm='rm -I'
+alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
