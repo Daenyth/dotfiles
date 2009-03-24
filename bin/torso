@@ -37,4 +37,8 @@ while [ $# -gt 0 ]; do
 done
 endline=$(expr $startline + $skiplines - 1)
 
-sed -n "$startline,${endline}p" "$filename"
+if [ -z "$filename" ]; then
+	sed -n "$startline,${endline}p"
+else
+	sed -n "$startline,${endline}p" "$filename"
+fi
