@@ -48,7 +48,7 @@ crossfade-time = 0
 enable-colors = yes
 
 ## background colors: black,red,green,yellow,blue,magenta,cyan,white, none 
-#color background = black
+color background = none
 
 ## text colors: black, red, green, yellow, blue, magenta, cyan, white,
 ##              brightblack, brightred, brightgreen, brightyellow, brightblue,
