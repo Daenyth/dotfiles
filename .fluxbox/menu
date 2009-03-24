@@ -100,7 +100,7 @@
 
 
 [submenu] (Audio)
-      [exec] (qmpdclient) {qmpdclient} </usr/share/pixmaps/qmpdclient16.png>
+      [exec] (sonata) {sonata} </usr/share/pixmaps/sonata.png>
       [separator]
       [exec] (alsamixer) {urxvt  -e alsamixer}
       [separator]
