@@ -95,7 +95,7 @@
 
 [submenu] (Graphics)
       [exec]   (xscreensaver-demo) {xscreensaver-demo} </usr/share/pixmaps/xscreensaver.xpm>
-      [exec]   (The GIMP) {gimp}
+      [exec]   (The GIMP) {gimp} /usr/share/icons/hicolor/16x16/apps/gimp.png
 [end]
 
 
