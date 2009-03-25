@@ -29,12 +29,14 @@ if root_privs ; then
   USRHILIGHT="$red"
   PWDHILIGHT="$NC"
 else
-  PWDHILIGHT="$green"
-  USRHILIGHT="$CYAN"
+  PWDHILIGHT="$GREEN"
+  USRHILIGHT="$cyan"
 fi
 
 case $prompt_type in
         2linebox)
+                PWDHILIGHT="$green"
+                USRHILIGHT="$CYAN"
                 PS1="\n${cyan}╔═${WHITE}[${NC}\A${WHITE}]${cyan}═${WHITE}[${NC}\u$(ssh_conn)@${NC}\h${WHITE}]${cyan}═${WHITE}[ ${PWDHILIGHT}\w ${WHITE}]\n${cyan}╚═══${WHITE}[${USRHILIGHT}\$${WHITE}]${NC}> "
                 ;;
         nocolor)
