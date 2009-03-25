@@ -5,14 +5,13 @@
 # Modified from tldp.org by Daenyth
 ##
 
-usecolorprompt=1
 
 # ssh_conn() -- return 1 if connected locally, 0 otherwise {{{
 function ssh_conn() {
 	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-	  echo "$red"
+	  echo "$RED"
 	fi
-	echo "$blue"
+	echo "$BLUE"
 }
 # }}}
 
@@ -30,24 +29,23 @@ if root_privs ; then
   USRHILIGHT="$red"
   PWDHILIGHT="$NC"
 else
-  PWDHILIGHT="$GREEN"
-  USRHILIGHT="$cyan"
+  PWDHILIGHT="$green"
+  USRHILIGHT="$CYAN"
 fi
 
-colorprompt="\u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
-nocolorprompt="\u@\h \W \\\$ "
+case $prompt_type in
+        2linebox)
+                PS1="\n${cyan}╔═${WHITE}[${NC}\A${WHITE}]${cyan}═${WHITE}[${NC}\u$(ssh_conn)@${NC}\h${WHITE}]${cyan}═${WHITE}[ ${PWDHILIGHT}\w ${WHITE}]\n${cyan}╚═══${WHITE}[${USRHILIGHT}\$${WHITE}]${NC}> "
+                ;;
+        nocolor)
+                PS1='\u@\h \W \$ '
+                ;;
+        *)
+                PS1="\u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
+                ;;
+esac
 
-# Prompt shamelessly stolen from http://bbs.archlinux.org/viewtopic.php?pid=514024#p514024
-#PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-15}; else CurDir=$DIR; fi'
-#PS1="\n╔═[\[\033[01;36m\]\A\[\033[01;00m\]]═[\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;31m\]\h\[\033[01;00m\]]\n\[\033[01;00m\]╚═══\[\033[00;32m\]=\[\033[00;33m\]=\[\033[00;31m\]=\[\033[01;00m\]═══[\[\033[01;36m\]\$CurDir\[\033[01;00m\]]\[\033[01;32m\]>>\[\033[00m\] "
-
-if [ $usecolorprompt -eq 1 ]; then
-	PS1="$colorprompt"
-else
-	PS1="$nocolorprompt"
-fi
-
-unset usecolorprompt
+unset prompt_type
 unset -f ssh_conn
 unset -f root_privs
 export PS1
