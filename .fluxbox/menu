@@ -86,7 +86,6 @@
       [separator]
       [exec] (digikam) {digikam}
       [separator]
-      [exec] (kdirstat) {kdirstat}
       [exec] (gtkpod) {gtkpod}
 [end]
 
