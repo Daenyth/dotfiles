@@ -9,11 +9,10 @@ usecolorprompt=1
 
 # ssh_conn() -- return 1 if connected locally, 0 otherwise {{{
 function ssh_conn() {
-	local SSH_FLAG=1
-	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then 
-	  SSH_FLAG=0
+	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+	  echo "$red"
 	fi
-	return $SSH_FLAG
+	echo "$blue"
 }
 # }}}
 
@@ -27,12 +26,6 @@ function root_privs() {
 }
 # }}}
 
-if ssh_conn ; then		# Locally connected
-  CONNHILIGHT="$red"
-else				# Connected remotely
-  CONNHILIGHT="$blue"
-fi
-
 if root_privs ; then
   USRHILIGHT="$red"
   PWDHILIGHT="$NC"
@@ -41,7 +34,7 @@ else
   USRHILIGHT="$cyan"
 fi
 
-colorprompt="\u${CONNHILIGHT}@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
+colorprompt="\u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
 nocolorprompt="\u@\h \W \\\$ "
 
 # Prompt shamelessly stolen from http://bbs.archlinux.org/viewtopic.php?pid=514024#p514024
