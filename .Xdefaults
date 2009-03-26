@@ -7,4 +7,4 @@ URxvt*perl-ext-common: default,matcher
 URxvt*urgentOnBell:    true
 URxvt*font: 9x15, xft:Code2000:antialias=true
 URxvt*transparent: true
-URxvt*shading: 20
+URxvt*shading: 40
