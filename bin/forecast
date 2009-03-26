@@ -3,7 +3,7 @@ DEFAULTZIP=02138
 
 getforecast() {
 	echo "Your 10 Day Weather Forecast as follows:"
-	echo "Day, Weather, Deg F, Precip. %"
+	echo "Day, Weather, °F, Precip. %"
 	links -dump "http://www.weather.com/weather/print/$1" | perl -ne '/\d %\s+$/ && s/DEG//g && print'
 	echo ""
 }
