@@ -219,12 +219,12 @@ case `uname` in
     Linux)
         alias ls='ls -hF --color=auto' ;
         alias lsd='ls -dAFh --color=auto .[^.]*'; # ls Dotfiles
-        alias lst="ls -hFtl --color=auto | grep $(date +%Y-%m-%d)" #ls Today
+        alias lst='ls -hFtl --color=auto | grep $(date +%Y-%m-%d)' #ls Today
     ;;
     Darwin|*BSD)
         alias ls='ls -hFG';
         alias lsd='ls -dAFhG .[^.]*'; # ls Dotfiles
-        alias lst="ls -hFtlG | grep $(date +%Y-%m-%d)"
+        alias lst='ls -hFtlG | grep $(date +%Y-%m-%d)'
     ;;
 esac
 
