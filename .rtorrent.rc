@@ -1,7 +1,3 @@
-# This is an example resource file for rTorrent. Copy to
-# ~/.rtorrent.rc and enable/modify the options as needed. Remember to
-# uncomment the options you wish to enable.
-
 # Minumum amount of peers to connect per torrent, if available.
 min_peers = 10
 
@@ -32,6 +28,8 @@ session = ~/torrent/session
 #schedule = untied_directory,5,5,stop_untied=
 #schedule = ip_tick,0,1800,ip=my_address
 
+# Show downloads currently uploading or downloading in active view. Update every 30 seconds.
+schedule = filter_active,30,30,"view_filter = active,\"or={d.get_up_rate=,d.get_down_rate=}\""
 
 # The ip address reported to the tracker.
 ip = 0.0.0.0
