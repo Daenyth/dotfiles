@@ -57,6 +57,9 @@ dht=auto
 # Set whetever the client should try to connect to UDP trackers.
 use_udp_trackers = yes
 
+# Set scgi port for wtorrent
+scgi_port = localhost:5000
+
 #
 # Do not modify the following parameters unless you know what you're doing.
 #
