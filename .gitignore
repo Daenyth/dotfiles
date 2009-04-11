@@ -26,6 +26,7 @@
 !.ncmpc/config
 !.bashpodder/*
 !.rtorrent.rc
+!.calcurse/
 
 # Games
 !.tremulous/
