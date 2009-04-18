@@ -149,7 +149,7 @@
 [submenu] (Magic: the Gathering)
       [exec] (Apprentice) {/home/Daenyth/bin/Appr}
       [exec] (Netdraft) {/home/Daenyth/bin/draft}
-      [exec] (ScrollRack) {scrollrack}
+      [exec] (ScrollRack) {cd ~/games/mtg; scrollrack}
 [end]
 [submenu] (Emulation)
       [exec] (ScummVM) {/home/Daenyth/bin/scummlaunch.sh}
