@@ -1,6 +1,6 @@
 #!/bin/bash
-find -L "${HOME}/Media" "${HOME}/wallpaper" -type f -exec chmod 644 {} \;
-find -L "${HOME}/Media" "${HOME}/wallpaper" -type d -exec chmod 755 {} \;
+find -L "${HOME}/Media" "${HOME}/wallpaper" -type f -exec chmod 644 {} +
+find -L "${HOME}/Media" "${HOME}/wallpaper" -type d -exec chmod 755 {} +
 
 find -L "${HOME}/Media" -type f -name 'Torrent downloaded from Demonoid.com.txt' -delete
 find -L "${HOME}/Media" -type f -name 'Thumbs.db' -delete
