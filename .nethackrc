@@ -12,13 +12,15 @@ OPTIONS=disclose:+i ya nv ng -c
 #
 #
 OPTIONS=menucolors
-MENUCOLOR=" blessed "=green
-MENUCOLOR=" holy "=green
-MENUCOLOR=" cursed "=red
-MENUCOLOR=" unholy "=red
-#MENUCOLOR=" (being worn)"=bold
+MENUCOLOR=" blessed"=green
+MENUCOLOR=" holy"=green
+MENUCOLOR=" cursed"=red
+MENUCOLOR=" unholy"=red
+MENUCOLOR=" (being worn)"=bold
+MENUCOLOR=" (weapon in hands?)"=bold
+MENUCOLOR=" (in quiver)"=bold
 MENUCOLOR=" cursed .* (being worn)"=orange&underline
-MENUCOLOR=" corpse "=brown
+MENUCOLOR=" corpse"=brown
 
 #OPTIONS=statuscolors
 #STATUSCOLOR=hp%100=white,hp%95=green,hp%65=yellow,hp%50=orange
