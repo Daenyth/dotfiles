@@ -16,10 +16,9 @@ MENUCOLOR=" blessed"=green
 MENUCOLOR=" holy"=green
 MENUCOLOR=" cursed"=red
 MENUCOLOR=" unholy"=red
-MENUCOLOR=" (being worn)"=bold
-MENUCOLOR=" (weapon in hands?)"=bold
-MENUCOLOR=" (in quiver)"=bold
-MENUCOLOR=" cursed .* (being worn)"=orange&underline
+MENUCOLOR=" \((being worn)\|(weapon in hands?)\|(in quiver)\)"=&bold
+MENUCOLOR=" blessed .* \((being worn)\|(weapon in hands?)\|(in quiver)\)"=green&bold
+MENUCOLOR=" cursed .* \((being worn)\|(weapon in hands?)\)"=orange&underline
 MENUCOLOR=" corpse"=brown
 
 #OPTIONS=statuscolors
