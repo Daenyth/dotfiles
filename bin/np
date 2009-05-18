@@ -1,2 +1,0 @@
-#!/bin/bash
-mpc --format "np: [[[%artist%]&[ - %title%][ - #[[%album%[ ##%track%]]#]]]|[%file%]]" | head -n 1

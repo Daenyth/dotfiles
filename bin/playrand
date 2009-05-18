@@ -1,5 +1,0 @@
-#!/bin/bash
-random=`mpc | tail -n 1 | awk '{print $6}'`
-mpc random on
-mpc next
-mpc random $random
