@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# aurcheckout() -- Update from community repo {{{
-aurcheckout () {
-        pushd ~/builds/community &> /dev/null || return 1
-	cvs up || return 1
-	popd &> /dev/null
-}
-# }}}
