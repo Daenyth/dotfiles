@@ -1,4 +1,4 @@
-[begin] (Muspelheimr)
+[begin] (Ratatoskr)
 [encoding] {UTF-8}
       [exec] (urxvtc) {urxvt }
       [exec] (firefox) {firefox -P default}
@@ -16,11 +16,8 @@
 [submenu] (Browsers)
       [exec]   (firefox (Default\)) {firefox -P default}
       [exec]   (firefox (ProfMan\)) {firefox -ProfileManager}
-      [exec]   (vncviewer) {vncviewer}
       [exec]   (links) {urxvt  -e links google.com}
       [exec]   (lynx) {urxvt  -e lynx google.com}
-      [exec]   (kaze) {kazehakase} </usr/share/pixmaps/kazahakase-icon.png>
-      [exec]   (midori) {midori}
 [end]
 
 
@@ -48,30 +45,27 @@
 #[end]
 
 
-[submenu] (FTP)
-      [exec]   (yafc) {urxvt  -e yafc}
-[end]
+#[submenu] (FTP)
+#[end]
 
 
 #[submenu] (SMB)
 #[end]
 
 
-[submenu] (Analyzer)
-      [exec]   (xnmap) {xnmap}
-      [exec]   (nmapfe) {nmapfe}
-      [exec]   (xnmap  (as root\)) {urxvt  -e sudo xnmap}
-      [exec]   (nmapfe  (as root\)) {urxvt  -e sudo nmapfe}
-[end]
+#[submenu] (Analyzer)
+#      [exec]   (xnmap) {xnmap}
+#      [exec]   (nmapfe) {nmapfe}
+#      [exec]   (xnmap  (as root\)) {urxvt  -e sudo xnmap}
+#      [exec]   (nmapfe  (as root\)) {urxvt  -e sudo nmapfe}
+#[end]
 
-      [exec]   (wpa_gui) {wpa_gui}
-[end]
+#      [exec]   (wpa_gui) {wpa_gui}
+#[end]
 
 
 [submenu] (Editors)
       [exec]   (gvim) {gvim} </usr/share/pixmaps//gvim.png>
-      [separator]
-      [exec]   (gedit) {gedit}
       [exec]   (vim) {urxvt  -e vim}
 [end]
 
@@ -94,25 +88,17 @@
 
 [submenu] (Graphics)
       [exec]   (xscreensaver-demo) {xscreensaver-demo} </usr/share/pixmaps/xscreensaver.xpm>
-      [exec]   (The GIMP) {gimp} /usr/share/icons/hicolor/16x16/apps/gimp.png
 [end]
 
 
 [submenu] (Audio)
-      [exec] (sonata) {sonata} </usr/share/pixmaps/sonata.png>
-      [separator]
       [exec] (alsamixer) {urxvt  -e alsamixer}
       [separator]
-      [exec] (audacity) {audacity} </usr/share/audacity/audacity.xpm>
-      [exec] (exfalso) {exfalso} </usr/share/pixmaps/exfalso.png>
 [end]
 
 
 [submenu] (Video)
       [exec] (xine) {xine} </usr/share/pixmaps/xine.xpm>
-      [separator]
-      [exec] (vlc) {vlc}
-      [exec] (dvdrip) {nohup dvdrip}
 [end]
 
 
@@ -132,38 +118,18 @@
 [end]
 
 
-[submenu] (Office)
+#[submenu] (Office)
 #      [exec]   (xclock) {xclock}
 #      [exec]   (xcalc) {xcalc}
-      [exec] (Open Office)      {OOO_FORCE_DESKTOP=gnome soffice}
-      [exec] (abiword) {abiword}
 #      [exec]   (acroread) {acroread}
 #      [exec]   (xpdf) {xpdf} </usr/share/pixmaps/xpdf.xpm>
-[end]
+#[end]
 
 
-[submenu] (Games)
-      [exec] (Ur-Quan Masters) {uqm}
-      [exec] (Chromium-bsu) {chromium}
-      [exec] (Breakout) {lbreakout2}
-[submenu] (Magic: the Gathering)
-      [exec] (Apprentice) {/home/Daenyth/bin/Appr}
-      [exec] (Netdraft) {/home/Daenyth/bin/draft}
-      [exec] (ScrollRack) {cd ~/games/mtg; scrollrack}
-[end]
-[submenu] (Emulation)
-      [exec] (ScummVM) {/home/Daenyth/bin/scummlaunch.sh}
-      [exec] (dosbox) {dosbox}
-      [exec] (Project 64) {wine "/home/Daenyth/.wine/drive_c/Program Files/Project64 1.6/Project64.exe"}
-      [exec] (ePSXe) {/opt/epsxe/epsxe}
-      [exec] (Game Boy) {gvba}
-      [exec] (SNES) {snes9x-gtk}
-      [exec] (NES) {gfceu}
-
-[end]
-      [separator]
-      [exec] (Savage) {/home/Daenyth/bin/savage.sh} </usr/share/pixmaps/Savage.xpm>
-      [exec] (Tremulous) {/home/Daenyth/bin/trem.sh}
+#[submenu] (Games)
+#[end]
+#[submenu] (Emulation)
+#[end]
 [end]
 
 
