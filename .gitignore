@@ -28,6 +28,7 @@
 !.rtorrent.rc
 !.calcurse/
 !.wgetrc
+!.shell-fm/
 
 # Games
 !.tremulous/
