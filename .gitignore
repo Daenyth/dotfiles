@@ -27,6 +27,7 @@
 !.bashpodder/*
 !.rtorrent.rc
 !.calcurse/
+!.shell-fm/
 
 # Games
 !.tremulous/
