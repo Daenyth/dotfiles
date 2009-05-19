@@ -33,4 +33,10 @@ Mod1 F9 :Workspace 9
 Mod1 F10 :Workspace 10
 Mod1 F11 :Workspace 11
 Mod1 F12 :Workspace 12
+
 Control Shift p :ExecCommand mpc toggle
+
+Control Mod1 Right :ExecCommand xrandr -o right
+Control Mod1 Up :ExecCommand xrandr -o normal
+
+None Menu :RootMenu
