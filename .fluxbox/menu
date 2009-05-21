@@ -61,7 +61,7 @@
 #[end]
 
 #      [exec]   (wpa_gui) {wpa_gui}
-#[end]
+[end]
 
 
 [submenu] (Editors)
