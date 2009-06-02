@@ -115,8 +115,6 @@
       [exec] (Reload .Xdefaults) {xrdb -load /home/Daenyth/.Xdefaults}
 [end]
 
-[end]
-
 
 #[submenu] (Office)
 #      [exec]   (xclock) {xclock}
