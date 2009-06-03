@@ -43,7 +43,7 @@ case $prompt_type in
                 PS1='\u@\h \W \$ '
                 ;;
         *)
-                PS1="[$(battery_status)] \u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
+                PS1="[\`battery_status\`] \u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
                 ;;
 esac
 
