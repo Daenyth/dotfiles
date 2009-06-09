@@ -146,6 +146,7 @@
       [exec] (Ur-Quan Masters) {uqm}
       [exec] (Chromium-bsu) {chromium}
       [exec] (Breakout) {lbreakout2}
+      [exec] (Battle for Wesnoth) {wesnoth} </usr/share/icons/wesnoth-icon.png>
 [submenu] (Magic: the Gathering)
       [exec] (Apprentice) {/home/Daenyth/bin/Appr}
       [exec] (Netdraft) {/home/Daenyth/bin/draft}
