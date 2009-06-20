@@ -3,7 +3,7 @@ OPTIONS=boulder:0
 
 #OPTIONS=msg_window:reversed
 
-OPTIONS=number_pad:1
+OPTIONS=number_pad:0
 
 OPTIONS=suppress_alert:3.4.3
 OPTIONS=disclose:+i ya nv ng -c
