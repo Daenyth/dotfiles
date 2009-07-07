@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # aurcheckout() -- Update from community repo {{{
+export CVS_RSH=ssh
 aurcheckout () {
         pushd ~/builds/community &> /dev/null || return 1
 	cvs up || return 1
