@@ -1,3 +1,7 @@
 # Intelligent history search. Default behavior available with Ctrl+P Ctrl+N
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Ctrl+left/right word movement
+"\eOc": forward-word
+"\eOd": backward-word
