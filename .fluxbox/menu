@@ -26,6 +26,7 @@
 
 [submenu] (IM)
       [exec]   (pidgin) {pidgin}
+      [exec]   (skype) {skype}
 [end]
 
 
