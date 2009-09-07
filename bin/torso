@@ -3,7 +3,7 @@
 # torso -- The missing link between `head` and `tail`
 
 # Usage: torso N [-n M] [FILE]
-# Prints M lines (default 10) from FILE (or STDIN if FILE is not given), starting at line N
+# Prints M lines (default 10) from FILE (or STDIN if FILE is not given), starting after line N
 
 if [ -z "$1" ]; then
 	echo "ERROR: Bad arguments"
@@ -15,7 +15,7 @@ filename=''
 
 OPT_SHORT='n:'
 OPT_TEMP="$(getopt -o "$OPT_SHORT" -n torso -- "$@" || echo 'GETOPT GO BANG!')"
-if echo "$OPT_TEMP" | grep -q 'GETOPT GO BANG!'; then
+if echo "$OPT_TEMP" | fgrep -q 'GETOPT GO BANG!'; then
         exit 1
 fi
 eval set -- "$OPT_TEMP"
@@ -27,7 +27,7 @@ while [ $# -gt 0 ]; do
 		--) : ;;
 		*)
 			if [ -z "$startline" ]; then
-				startline=$1
+				startline=$(expr $1 + 1)
 			else
 				filename="$1"
 			fi
