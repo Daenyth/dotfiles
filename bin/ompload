@@ -1,0 +1,31 @@
+#!/bin/bash
+
+###:: ompload bash version
+
+# TODO: Add 'slow down, cowboy' sleeps
+
+URL='http://omploader.org/'
+TMP='/tmp/ompload.tmp'
+Q='-#' ; U=0 ; F='OmPlOrD'
+
+while getopts 'quf:h' opt ; do
+	case $opt in
+		q) Q='-s' ;;
+		u) Q='-s' ; U=1 ;;
+		f) F="$OPTARG"  ;;
+		h) echo '-q for quiet; -u for url only; -f for stdin.name' ; exit 0 ;;
+	esac
+done
+shift $((OPTIND-1))
+
+if [ ${#@} -eq 0 ] ; then
+	curl $Q -F "file1=@-;filename=${F}" ${URL}upload -o "${TMP}"
+	URI=$(grep '<!-- View file' "${TMP}" | grep -m1 -o ${URL}'[[:alnum:]]*')
+	echo "${URI}"
+else
+	for IMG ; do
+		curl $Q -F "file1=@${IMG}" ${URL}upload -o "${TMP}"
+		URI=$(grep '<!-- View file' "${TMP}" | grep -m1 -o ${URL}'[[:alnum:]]*')
+		[ $U == 0 ] && echo "${IMG}" '-->' "${URI}" || echo "${URI}"
+	done
+fi
