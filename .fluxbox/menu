@@ -19,7 +19,6 @@
       [exec]   (vncviewer) {vncviewer}
       [exec]   (links) {urxvt  -e links google.com}
       [exec]   (lynx) {urxvt  -e lynx google.com}
-      [exec]   (kaze) {kazehakase} </usr/share/pixmaps/kazahakase-icon.png>
       [exec]   (midori) {midori}
 [end]
 
@@ -138,6 +137,7 @@
 #      [exec]   (xcalc) {xcalc}
       [exec] (Open Office)      {OOO_FORCE_DESKTOP=gnome soffice}
       [exec] (abiword) {abiword}
+      [exec] (Sunbird) {sunbird} </usr/share/pixmaps/sunbird.png>
 #      [exec]   (acroread) {acroread}
 #      [exec]   (xpdf) {xpdf} </usr/share/pixmaps/xpdf.xpm>
 [end]
