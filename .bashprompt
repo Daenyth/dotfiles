@@ -11,7 +11,7 @@ function ssh_conn() {
 	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
 	  echo "$RED"
 	fi
-	echo "$BLUE"
+	echo -n "$BLUE"
 }
 # }}}
 
