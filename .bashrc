@@ -235,6 +235,8 @@ have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
 have less && alias more='less'
 have ompload && have mpc && alias ompnp='ompload "$HOME/Music/`mpc --format %file% |head -n1`"'
 
+have git && alias cdg='cd $(git rev-parse --git-dir)/..'
+
 # }}}
 
 # Environment variables {{{
