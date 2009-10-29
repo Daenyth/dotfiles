@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/games/df/df_linux
+ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"./libs"
+ ./dwarfort.exe
