@@ -144,6 +144,7 @@
 
 
 [submenu] (Games)
+      [exec] (Dwarf Fortress) {~/bin/dwarffort}
       [exec] (Ur-Quan Masters) {uqm}
       [exec] (Chromium-bsu) {chromium}
       [exec] (Breakout) {lbreakout2}
