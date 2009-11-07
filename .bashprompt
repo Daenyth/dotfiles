@@ -9,9 +9,10 @@
 # ssh_conn() -- return 1 if connected locally, 0 otherwise {{{
 function ssh_conn() {
 	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-	  echo "$RED"
-	fi
-	echo -n "$BLUE"
+	  echo -n "$RED"
+        else
+          echo -n "$BLUE"
+        fi
 }
 # }}}
 
