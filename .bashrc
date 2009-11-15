@@ -235,7 +235,7 @@ have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
 have less && alias more='less'
 if have mpc; then
     have ompload && alias ompnp='ompload "$HOME/Music/`mpc --format %file% |head -n1`"'
-    alias rmnp='rm -i "$HOME/Music/`mpc --format %file% | head -n1`"'
+    alias rmnp='rm -i "$HOME/Music/`mpc --format %file% | head -n1`" && mpc next &>/dev/null && np'
 fi
 
 have git && alias cdg='cd $(git rev-parse --git-dir)/..'
