@@ -3,7 +3,7 @@ set nu
 set nowrap
 set noexpandtab
 set autoindent
-set shiftwidth=8
+set shiftwidth=4 ts=4 et
 "set smartindent
 filetype plugin indent on
 set mouse=hvi
@@ -16,3 +16,13 @@ au BufEnter,BufRead * match RedundantSpaces "[[:space:]]\+$"
 
 " Set default sh to bash
 let g:is_sh	   = 1
+
+function! s:DiffWithSaved()
+    let filetype=&ft
+    diffthis
+    vnew | r # | normal! 1Gdd
+    diffthis
+    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
