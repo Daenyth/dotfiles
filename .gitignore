@@ -32,3 +32,5 @@
 !.tremulous/
 !.nethackrc
 
+# Other
+!.config/
