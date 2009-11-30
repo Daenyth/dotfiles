@@ -54,6 +54,9 @@ check_hash = yes
 # The default is "off". For DHT to work, a session directory must be defined.
 dht=auto
 
+#Enable peer exchange (for torrents not marked private)
+peer_exchange = yes
+
 # Set whetever the client should try to connect to UDP trackers.
 use_udp_trackers = yes
 
