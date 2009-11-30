@@ -2,5 +2,8 @@ alias rm='rm -i'
 alias mv='mv -i'
 
 gitalias com='commit -s'
+gitalias st='status'
+alias cdg='cd $(git rev-parse --git-dir)/..'
+unalias svn
 
 export PS1='[`battery_status`] `_git_headname`!`_git_workdir``_git_dirty`> '
