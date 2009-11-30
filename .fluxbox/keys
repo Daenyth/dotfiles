@@ -39,4 +39,6 @@ Control Shift p :ExecCommand mpc toggle
 Control Mod1 Right :ExecCommand xrandr -o right
 Control Mod1 Up :ExecCommand xrandr -o normal
 
+None Super_L :NextWindow
+
 None Menu :RootMenu
