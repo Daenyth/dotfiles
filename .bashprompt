@@ -6,22 +6,86 @@
 ##
 
 
-# ssh_conn() -- return 1 if connected locally, 0 otherwise {{{
+# ssh_conn() -- set color based on ssh status {{{
 function ssh_conn() {
-	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-	  echo "$RED"
-	fi
-	echo "$BLUE"
+  if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
+    echo "$RED"
+  fi
+  echo "$BLUE"
 }
 # }}}
 
 # root_privs() -- return 1 if not root, 0 if root {{{
 function root_privs() {
-	PRIV=1
-	if [ `/usr/bin/id -u` -eq 0 ]; then
-		PRIV=0
-	fi
-	return $PRIV
+  PRIV=1
+  if [ `/usr/bin/id -u` -eq 0 ]; then
+    PRIV=0
+  fi
+  return $PRIV
+}
+# }}}
+
+# battery status stuff {{{
+battery_charge_amount () {
+  local BATTERY=/proc/acpi/battery/BAT0
+
+  local REM_CAP=`grep "^remaining capacity" $BATTERY/state | awk '{ print $3 }'`
+  local FULL_CAP=`grep "^last full capacity" $BATTERY/info | awk '{ print $4 }'`
+
+  local CHARGE=`echo $(( $REM_CAP * 100 / $FULL_CAP ))`
+
+  # prevent a charge of more than 100% displaying
+  if [ "$CHARGE" -gt "99" ]; then
+    CHARGE=100
+  fi
+
+  echo $CHARGE
+}
+
+battery_charge_color () {
+  local CHARGE=`battery_charge_amount`
+
+  RED='\033[01;31m'
+  GRN='\033[01;32m'
+  YEL='\033[01;33m'
+
+  COLOUR="$RED"
+  if [ "$CHARGE" -gt "15" ]; then
+    COLOUR="$YEL"
+  fi
+
+  if [ "$CHARGE" -gt "30" ]; then
+    COLOUR="$GRN"
+  fi
+
+  echo -e "$COLOUR"
+}
+
+battery_status_color () {
+  BATTERY=/proc/acpi/battery/BAT0
+
+  BATSTATE=`grep "^charging state" $BATTERY/state | awk '{ print $3 }'`
+
+
+  BLD='\033[01m'
+  RED='\033[01;31m'
+  GRN='\033[01;32m'
+
+
+  case "${BATSTATE}" in
+    'charged')
+      BATSTT="${BLD}"
+      ;;
+    'charging')
+      BATSTT="${GRN}"
+      ;;
+    'discharging')
+      BATSTT="${RED}"
+      ;;
+  esac
+
+  echo -e "$BATSTT"
+
 }
 # }}}
 
@@ -34,17 +98,17 @@ else
 fi
 
 case $prompt_type in
-        2linebox)
-                PWDHILIGHT="$green"
-                USRHILIGHT="$CYAN"
-                PS1="\n${cyan}╔═${WHITE}[${NC}\A${WHITE}]${cyan}═${WHITE}[${NC}\u$(ssh_conn)@${NC}\h${WHITE}]${cyan}═${WHITE}[ ${PWDHILIGHT}\w ${WHITE}]\n${cyan}╚═══${WHITE}[${USRHILIGHT}\$${WHITE}]${NC}> "
-                ;;
-        nocolor)
-                PS1='\u@\h \W \$ '
-                ;;
-        *)
-                PS1="[\`battery_status\`] \u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
-                ;;
+  2linebox)
+    PWDHILIGHT="$green"
+    USRHILIGHT="$CYAN"
+    PS1="\n${cyan}╔═${WHITE}[${NC}\A${WHITE}]${cyan}═${WHITE}[${NC}\u$(ssh_conn)@${NC}\h${WHITE}]${cyan}═${WHITE}[ ${PWDHILIGHT}\w ${WHITE}]\n${cyan}╚═══${WHITE}[${USRHILIGHT}\$${WHITE}]${NC}> "
+    ;;
+  nocolor)
+    PS1='\u@\h \W \$ '
+    ;;
+  *)
+    PS1="[\[\`battery_charge_color\`\]\`battery_charge_amount\`${NC}\[\`battery_status_color\`\]⚡${NC}] \u$(ssh_conn)@${NC}\h ${PWDHILIGHT}\W${NC} ${USRHILIGHT}\\\$${NC} "
+    ;;
 esac
 
 unset prompt_type
