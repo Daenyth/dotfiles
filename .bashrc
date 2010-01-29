@@ -183,6 +183,13 @@ shquot () {
 }
 # }}}
 
+# mvf cpf goto {{{
+goto() { [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; }
+
+cpf() { cp "$@" && goto "$_"; }
+
+mvf() { mv "$@" && goto "$_"; }
+# }}}
 # }}}1
 
 # Set some bash options {{{
