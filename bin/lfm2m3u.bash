@@ -1,16 +1,21 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+    echo "Please enter the URL of a Last.FM playlist to scan"
+    exit 1
+fi
+
 # We need this for ** to work
 shopt -s globstar  || exit 1
 # And we need this to properly parse the playlist
 perl -MURI::Escape -e '' || exit 1
 
-startdir=$(pwd)
 cd ~/Music
 
-# playlist_url="http://www.last.fm/user/Cemetary_walk/library/playlists/304fi_nightjam"
-# wget -q "$playlist_url" -O - | grep -A1 'td class="track"' | grep href > playlist.html
-cat $startdir/playlist.html | perl -MURI::Escape -ne '
+playlist_url="$1"
+wget -q "$playlist_url" -O - | grep -A1 'td class="track"' | grep href | #> playlist.html
+#cat $startdir/playlist.html |
+perl -MURI::Escape -ne '
 $_ = uri_unescape(uri_unescape($_)); 
 $_ =~ tr/+/ /; 
 ($artist,$track) = $_ =~ m{– <a href="/music/(.*?)/_/(.*?)">}; 
