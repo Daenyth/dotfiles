@@ -18,7 +18,7 @@ wget -q "$playlist_url" -O - | grep -A1 'td class="track"' | grep href | #> play
 perl -MURI::Escape -ne '
 $_ = uri_unescape(uri_unescape($_)); 
 $_ =~ tr/+/ /; 
-($artist,$track) = $_ =~ m{– <a href="/music/(.*?)/_/(.*?)">}; 
+($artist,$track) = $_ =~ m{– <a href="/music/(?: noredirect/)?(.*?)/_/(.*?)">}; 
 print "$artist\t$track\n"' |
 while IFS=$(printf '\t') read artist track; do
 	target_track=("$artist"/**/*"$track"*)
