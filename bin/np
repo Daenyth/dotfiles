@@ -1,9 +1,9 @@
 #!/bin/bash
 export MPD_HOST=10.0.1.10
 
-if pgrep mpg123; then
+if pgrep mpg123 &>/dev/null; then
 	echo "np: $(ps auxwww | sed -n '/mpg123/s/.*mpg123 //')"
-elif pgrep shell-fm; then
+elif pgrep shell-fm &>/dev/null; then
 	cat ~/.shell-fm/np
 elif mpc | grep -q playing; then
 	mpc --format "np: [[[%artist%]&[ - %title%][ - #[[%album%[ ##%track%]]#]]]|[%file%]]" | head -n 1
