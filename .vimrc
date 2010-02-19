@@ -4,6 +4,7 @@ set nowrap
 set noexpandtab
 set autoindent
 set shiftwidth=4 ts=4 et
+set incsearch hlsearch
 "set smartindent
 filetype plugin indent on
 set mouse=hvi
