@@ -1,7 +1,7 @@
 [begin] (Ratatoskr)
 [encoding] {UTF-8}
       [exec] (urxvtc) {urxvt }
-      [exec] (firefox) {firefox -P default}
+      [exec] (chromium) {chromium}
       [exec] (Run) {fbrun }
       [separator]
 
@@ -16,6 +16,8 @@
 [submenu] (Browsers)
       [exec]   (firefox (Default\)) {firefox -P default}
       [exec]   (firefox (ProfMan\)) {firefox -ProfileManager}
+      [exec]   (midori) {midori}
+      [exec]   (chromium) {chromium}
       [exec]   (links) {urxvt  -e links google.com}
       [exec]   (lynx) {urxvt  -e lynx google.com}
 [end]
