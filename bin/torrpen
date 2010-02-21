@@ -1,0 +1,43 @@
+#!/bin/bash
+
+rtorrent_watch_dir=~/torrent
+torrent_holding_pen=~/torrent/pending
+buffer=$((600 * 1024)) # Size in KB to keep unused (600MB)
+
+space_left=$(($(df $rtorrent_watch_dir | awk '/dev/ {print $4}') - $buffer))
+tmpdir=$(mktemp -d /tmp/torrpen.XXXX)
+
+get_torrent_size () {
+    size=$(echo "$(transmissioncli --info "$1" |& awk '/size/ {print $2}') / 1024" | bc)
+    echo $size
+}
+
+cleanup () {
+    rm -rf "$tmpdir"
+    exit
+}
+
+cd "$torrent_holding_pen"
+declare -A torrent_sizes
+for torrent in *.torrent; do
+    [[ -f "$torrent" ]] || exit # Dir is empty
+    torrsize=$(get_torrent_size "$torrent")
+    torrent_sizes["$torrent"]=$torrsize
+done
+
+for key in "${!torrent_sizes[@]}"; do
+    echo "${torrent_sizes[$key]} $key"
+done | sort -n > "$tmpdir/sizes"
+
+projected_space=$space_left
+while read size torrent < "$tmpdir/sizes"; do
+    (( projected_space > 0 )) || break
+    if (( size < projected_space )); then
+        mv "$torrent" "$rtorrent_watch_dir"
+        let "projected_space -= size"
+    else
+        break
+    fi
+done
+
+cleanup
