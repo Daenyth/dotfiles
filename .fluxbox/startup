@@ -39,9 +39,8 @@
 #
 unclutter -idle 5 &
 gkrellm -w &
-numlockx on
 pidof urxvtd &>/dev/null || urxvtd &
-github-notifier -t 0 &
+batterymon &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 

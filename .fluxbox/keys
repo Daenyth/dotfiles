@@ -10,6 +10,24 @@ OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
 OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
 
 !mouse actions added by fluxbox-update_configs
+OnDesktop Mouse1 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse3 :RootMenu
+OnDesktop Mouse4 :NextWorkspace
+OnDesktop Mouse5 :PrevWorkspace
+
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Mouse2 :StartTabbing
+
+!mouse actions added by fluxbox-update_configs
+OnTitlebar Double Mouse1 :Shade
+OnTitlebar Mouse3 :WindowMenu
+
+!mouse actions added by fluxbox-update_configs
+OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing BottomRight}
+
+!mouse actions added by fluxbox-update_configs
 OnToolbar Mouse4 :NextWorkspace
 OnToolbar Mouse5 :PrevWorkspace
 
@@ -34,3 +52,4 @@ Mod1 F10 :Workspace 10
 Mod1 F11 :Workspace 11
 Mod1 F12 :Workspace 12
 Control Shift p :ExecCommand mpc toggle
+
