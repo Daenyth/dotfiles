@@ -1,3 +1,4 @@
 username = daenyth
 np-file = /home/Daenyth/.shell-fm/np
 np-file-format = np: %a - %t [%l]
+bind = localhost
