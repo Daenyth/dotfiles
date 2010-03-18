@@ -1,2 +1,10 @@
 #!/bin/bash
-mpc --format "np: [[[%artist%]&[ - %title%][ - #[[%album%[ ##%track%]]#]]]|[%file%]]" | head -n 1
+export MPD_HOST=localhost
+
+if pgrep mpg123 &>/dev/null; then
+	echo "np: $(ps auxwww | sed -n '/mpg123/s/.*mpg123 //')"
+elif pgrep shell-fm &>/dev/null; then
+	cat ~/.shell-fm/np
+elif mpc | grep -q playing; then
+	mpc --format "np: [[[%artist%]&[ - %title%][ - #[[%album%[ ##%track%]]#]]]|[%file%]]" | head -n 1
+fi
