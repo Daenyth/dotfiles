@@ -281,6 +281,7 @@ fi
 if have raggle; then
     RAGGLE_BROWSER=ELINKS
 fi
+export FIGNORE=.svn
 # }}}
 
 # Set Prompt {{{
