@@ -211,7 +211,7 @@ shopt -s extglob    # necessary for programmable completion
 shopt -s nocaseglob # Case-insensitive globbing
 shopt -s progcomp   # Programmable completion is FUN
 shopt -u mailwarn
-unset MAILCHECK     # I don't want my shell to warn me of incoming mail
+unset MAILCHECK     # I don't want my shell to warn me of incoming mail # ' <- Fix broken highlighting from previous tick
 [[ ${BASH_VERSION::3} == '4.0' ]] && shopt -s globstar # Allows me to use ** like zsh
 # }}}
 
