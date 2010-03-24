@@ -1,7 +1,7 @@
 URxvt*saveLines: 5000
 URxvt*foreground: white
 URxvt*background: black
-URxvt*urlLauncher: firefox
+URxvt*urlLauncher: chromium
 URxvt*matcher.button: 1
 URxvt*perl-ext-common: default,matcher
 URxvt*urgentOnBell:    true
