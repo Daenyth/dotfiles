@@ -278,9 +278,6 @@ if have nethack; then
         export NETHACKOPTIONS="!autopickup,number_pad:1,color" # Set some but not all of my options, if I don't have a dedicated file
     fi
 fi
-if have raggle; then
-    RAGGLE_BROWSER=ELINKS
-fi
 export FIGNORE=.svn
 # }}}
 
