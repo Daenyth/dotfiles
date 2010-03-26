@@ -270,7 +270,7 @@ fi
 export EDITOR='vim'
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export OOO_FORCE_DESKTOP=gnome # Needed by OOo 3 or it crashes.
-export BROWSER='firefox -new-tab'
+export BROWSER='chromium'
 if have nethack; then
     if [ -f ~/.nethackrc ]; then
         export NETHACKOPTIONS="@${HOME}/.nethackrc"
