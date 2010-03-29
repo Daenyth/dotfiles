@@ -20,6 +20,7 @@
       [exec]   (links) {urxvt  -e links google.com}
       [exec]   (lynx) {urxvt  -e lynx google.com}
       [exec]   (midori) {midori}
+      [exec]   (chromium) {chromium}
 [end]
 
 

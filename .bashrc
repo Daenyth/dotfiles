@@ -211,7 +211,7 @@ shopt -s extglob    # necessary for programmable completion
 shopt -s nocaseglob # Case-insensitive globbing
 shopt -s progcomp   # Programmable completion is FUN
 shopt -u mailwarn
-unset MAILCHECK     # I don't want my shell to warn me of incoming mail
+unset MAILCHECK;     # I don't want my shell to warn me of incoming mail
 [[ ${BASH_VERSION::3} == '4.0' ]] && shopt -s globstar # Allows me to use ** like zsh
 # }}}
 
@@ -278,9 +278,6 @@ if have nethack; then
         export NETHACKOPTIONS="!autopickup,number_pad:1,color" # Set some but not all of my options, if I don't have a dedicated file
     fi
 fi
-if have raggle; then
-    RAGGLE_BROWSER=ELINKS
-fi
 # }}}
 
 # Set Prompt {{{
@@ -299,8 +296,7 @@ fi
 
 # Display stuff after login {{{
 date
-have pom && pom
-echo
+have pom && pom && echo
 have fortune && fortune -c
 echo
 # }}}
