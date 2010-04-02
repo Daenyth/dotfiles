@@ -1,8 +1,15 @@
 alias rm='rm -i'
 alias mv='mv -i'
 
-gitalias com='commit -s'
-gitalias st='status'
+while read alias; do
+    short=$(echo $alias | cut -d' ' -f1 | cut -d. -f2)
+    command=$(echo $alias | cut -d' ' -f2-)
+    if [[ ${command:0:1} == '!' ]]; then
+        alias "$short"="${command:1}"
+    else
+        gitalias "$short"="$command"
+    fi
+done < <(git config --global --get-regexp '^alias\.')
 
 alias cdg='cd $(git rev-parse --git-dir)/..'
 unalias svn
