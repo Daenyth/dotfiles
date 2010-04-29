@@ -30,3 +30,7 @@ com! DiffSaved call s:DiffWithSaved()
 "Will allow you to use :w!! to write to a file using sudo if you forgot to
 ""sudo vim file" (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
+
+" Vim+Eclipse integration
+let g:EclimHome = '/usr/share/vim/vimfiles/eclim'
+let g:EclimEclipseHome = '/usr/share/eclipse'
