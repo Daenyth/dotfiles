@@ -12,4 +12,28 @@ while read alias; do
 done < <(git config --global --get-regexp '^alias\.')
 
 alias cdg='cd $(git rev-parse --git-dir)/..'
+unalias a
+unalias aa
+unalias ap
+unalias b
+unalias c
+unalias ca
+unalias ci
+unalias d
+unalias f
+unalias ds
+unalias fsck
+unalias init
+unalias k
+unalias l
+unalias n
+unalias p
+unalias pm
+unalias pop
+unalias pr
+unalias r
+unalias re
+unalias s
 unalias svn
+unalias t
+unalias var
