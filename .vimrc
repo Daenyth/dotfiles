@@ -27,3 +27,4 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+autocmd FileType python set omnifunc=pythoncomplete#Complete
