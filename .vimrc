@@ -30,3 +30,5 @@ com! DiffSaved call s:DiffWithSaved()
 "Will allow you to use :w!! to write to a file using sudo if you forgot to
 ""sudo vim file" (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
