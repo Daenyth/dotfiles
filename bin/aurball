@@ -4,15 +4,14 @@ set -e
 
 script=PKGBUILD
 
-if [[ -n $1 ]]; then
+if [[ -n "$1" ]]; then
+    if [[ ! -r $1 ]]; then
+        echo "Can't read $1!"
+        exit 1
+    fi
     script=$1
 fi
 
-if [[ ! -r $1 ]]; then
-    echo "Can't read $1!"
-    exit 1
-fi
-
-makepkg --source -p $script
+makepkg -f --source -p $script
 srcname=$(. $script; echo "$pkgname-$pkgver-$pkgrel.src.tar.gz")
 burp $srcname
