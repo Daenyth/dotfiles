@@ -1,5 +1,5 @@
 #!/bin/bash
-DEFAULTZIP=02120
+DEFAULTZIP=02138
 
 getforecast() {
 	echo "Your 10 Day Weather Forecast as follows:"

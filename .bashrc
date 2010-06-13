@@ -124,7 +124,7 @@ function ask()
 # weather() -- Check weather {{{
 function weather ()
 {
-    links -dump "http://google.com/search?q=weather+${1:-02120}" | grep -A 5 -m 1 '^ *Weather for' | grep -v 'Add to'
+    links -dump "http://google.com/search?q=weather+${1:-02138}" | grep -A 5 -m 1 '^ *Weather for' | grep -v 'Add to'
 }
 # }}}
 
