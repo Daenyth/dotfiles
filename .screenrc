@@ -2,5 +2,5 @@ startup_message off
 defutf8 on
 defscrollback 10000
 
-# Make it so that screen massages have the bottom-of-screen popup instead of showing in rxvt's title
+# Make it so that screen messages have the bottom-of-screen popup instead of showing in rxvt's title
 hardstatus off
