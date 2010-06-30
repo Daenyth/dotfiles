@@ -1,5 +1,5 @@
 #!/bin/bash
-export MPD_HOST=localhost
+export MPD_HOST=192.168.0.107
 
 if pgrep mpg123 &>/dev/null; then
 	echo "np: $(ps auxwww | sed -n '/mpg123/s/.*mpg123 //')"
