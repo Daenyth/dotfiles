@@ -36,3 +36,6 @@
 
 # Other
 !.config/
+
+# Python IDLE
+!.idlerc/
