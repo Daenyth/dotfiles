@@ -37,3 +37,6 @@ let g:EclimEclipseHome = '/usr/share/eclipse'
 " Tag List options
 let Tlist_Exit_OnlyWindow = 1 " Close if Tlist is the only window
 let Tlist_File_Fold_Auto_Close = 1 " Fold away tags for non-active files
+
+" :make for haskell
+au BufEnter *.hs compiler ghc
