@@ -134,7 +134,13 @@ def process_imports(movepaths):
 
         # Hardlink here because we may not have write permission on the
         #  source, so a move would fail, but we still want it put into the library
-        os.link(from_path, to_path)
+        try:
+            os.link(from_path, to_path)
+        except OSError as e:
+            if e.errno == errno.EEXIST:
+                print "Warning: Target file already exists: %s. Skipping" % to_path
+            else:
+                raise
         try:
             os.unlink(from_path)
         except OSError as e:
