@@ -12,6 +12,9 @@ import mutagen
 incoming_dir = os.path.expanduser('~drew/Musics')
 music_library = os.path.expanduser('~/Media/Music')
 
+# Remove files from incoming_dir after importing?
+unlink_originals = False
+
 def scan_incoming(dir_):
     """Return a list of files in the incoming directory, recursively"""
     if not os.path.exists(dir_):
@@ -141,11 +144,11 @@ def process_imports(movepaths):
                 print "Warning: Target file already exists: %s. Skipping" % to_path
             else:
                 raise
-        try:
-            os.unlink(from_path)
-        except OSError as e:
-            print "Warning: Caught error trying to unlink %s: %s. Ignoring" % (from_path, str(e))
-            pass
+        if unlink_originals:
+            try:
+                os.unlink(from_path)
+            except OSError as e:
+                print "Warning: Caught error trying to unlink %s: %s. Ignoring" % (from_path, str(e))
 
 def clean_incoming(incoming_dir):
     """Clean the incoming directory
