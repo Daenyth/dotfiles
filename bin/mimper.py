@@ -51,6 +51,7 @@ def get_movepaths(files):
     movepaths = []
 
     for file_ in files:
+        # TODO: Refactor all this
         artist = None
         title = None
         album = None
@@ -62,20 +63,36 @@ def get_movepaths(files):
         ext = filename.split('.')[-1]
 
         try:
-            artist = file_['artist']
-            title = file_['title']
-        except KeyError:
-            print "Warning: %s does not have Artist/Title tags set. Skipping" % filename
+            artist = file_['artist'][0]
+            title = file_['title'][0]
+        except IndexError:
+            print "Warning: Error reading Artist/Title tags from %s. Skipping" % filename
             continue
+        except KeyError:
+            if 'TPE1' in file_ and 'TIT2' in file_:
+                # mp3 bullshit
+                artist = str(file_['TPE1'])
+                title = str(file_['TIT2'])
+            else:
+                print "Warning: %s does not have Artist/Title tags set. Skipping" % filename
+                continue
 
         try:
-            album = file_['album']
-            track = file_['tracknumber']
-            if '/' in track:
-                # Some fools tag as x/y where y = total tracks
-                track = track.split("/")[0]
+            album = file_['album'][0]
+            track = file_['tracknumber'][0]
+        except IndexError:
+            print "Warning: Error reading Album/Track tags from %s. Continuing anyway" % filename
         except KeyError:
-            print "Warning: %s does not have Album/Track tags set. Continuing anyway" % filename
+            if 'TALB' in file_ and 'TRCK' in file_:
+                # mp3 bullshit
+                album = str(file_['TALB'])
+                track = str(file_['TRCK'])
+            else:
+                print "Warning: %s does not have Album/Track tags set. Continuing anyway" % filename
+
+        if '/' in track:
+            # Some fools tag as x/y where y = total tracks
+            track = track.split("/")[0]
 
         # XXX: Move to either "Artist/Title" or "Artist/Album/Track Title"
         if album is None:
