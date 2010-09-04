@@ -3,19 +3,23 @@
 """Scan incoming directory for new music and import them to the library"""
 
 import os
+import sys
 import errno
 
 import mutagen
 
 # XXX: It is assumed that these paths are on the same partition (and it supports hard links)
-incoming_dir = os.path.expanduser('~drew/Music/')
+incoming_dir = os.path.expanduser('~drew/Musics')
 music_library = os.path.expanduser('~/Media/Music')
 
 def scan_incoming(dir_):
     """Return a list of files in the incoming directory, recursively"""
+    if not os.path.exists(dir_):
+        raise ValueError("Incoming directory '%s' does not exist!" % dir_)
     incoming_files = []
     for root, _, files in os.walk(dir_):
         for file_ in files:
+            print "Info: Found %s" % file_
             incoming_files.append(os.path.join(root, file_))
 
     return incoming_files
@@ -103,8 +107,8 @@ def process_imports(movepaths):
     ** Side effects **
 
     movepaths is a 2-tuple of (from, to) file paths"""
-    for from_path, to_path in movepaths:
-        to_path = os.path.join(music_library, to_path)
+    for from_path, to_file in movepaths:
+        to_path = os.path.join(music_library, to_file)
 
         makedirs(os.path.split(to_path)[0])
 
@@ -127,7 +131,6 @@ def clean_incoming(incoming_dir):
 
 
 def main():
-
     # Wish I had haskell's sweet function composition here: scan_incoming . get_metadata . get_movepaths ...
     incoming_files = scan_incoming(incoming_dir)
     files = get_metadata(incoming_files)
@@ -137,4 +140,4 @@ def main():
     clean_incoming(incoming_dir)
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
