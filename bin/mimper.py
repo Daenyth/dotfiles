@@ -98,7 +98,7 @@ def get_movepaths(files):
         if album is None:
             target_path = os.path.join(artist, "%s.%s" % (title, ext))
         else:
-            target_path = os.path.join(artist, album, "%s %s.%s" % (track, title, ext))
+            target_path = os.path.join(artist, album, "%0.2d %s.%s" % (int(track), title, ext))
 
         movepaths.append((file_, target_path))
 
