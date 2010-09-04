@@ -123,8 +123,11 @@ def process_imports(movepaths):
 
     ** Side effects **
 
-    movepaths is a 2-tuple of (from, to) file paths"""
-    for from_path, to_file in movepaths:
+    movepaths is a 2-tuple of (file, to_name) where file is a mutagen
+    object and to_name is the relative path where it should go from the
+    music root"""
+    for file_, to_file in movepaths:
+        from_path = file_.filename
         to_path = os.path.join(music_library, to_file)
 
         makedirs(os.path.split(to_path)[0])
