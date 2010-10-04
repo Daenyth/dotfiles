@@ -1,7 +1,6 @@
 set nocindent
 set nu
 set nowrap
-set noexpandtab
 set autoindent
 set shiftwidth=4 ts=4 et
 set incsearch hlsearch
