@@ -151,6 +151,7 @@
       [exec] (Breakout) {lbreakout2}
       [exec] (Battle for Wesnoth) {wesnoth} </usr/share/icons/wesnoth-icon.png>
 [submenu] (Magic: the Gathering)
+      [exec] (Cockatrice) {/opt/cockatrice/bin/cockatrice}
       [exec] (Apprentice) {/home/Daenyth/bin/Appr}
       [exec] (Netdraft) {/home/Daenyth/bin/draft}
       [exec] (ScrollRack) {cd ~/games/mtg; scrollrack}
