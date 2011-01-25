@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/.wine/drive_c/Program\ Files/NetDraft
-wine idraft.exe
+cd ~/games/mtg/Netdraft\ 2\ up\ to\ SOM/
+wine "NetDraft 2.002.exe"
