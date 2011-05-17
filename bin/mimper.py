@@ -25,6 +25,8 @@ class Importer(object):
     def run(self):
         """
         Run the importer with the initialized settings
+
+        Python won't allow this to be named 'import'.
         """
         self.import_files(self.incoming, self.music_root, self.unlink_after)
 
@@ -187,9 +189,9 @@ def makedirs(path):
             raise
 
 if __name__ == '__main__':
-    from_dir = os.path.expanduser('~drew/Musics')
+    from_dir = os.path.expanduser('~/Dropbox/Music')
     to_dir = os.path.expanduser('~/Media/Music')
 
-    importer = Importer(from_dir, to_dir, unlink_after=True)
+    importer = Importer(from_dir, to_dir, unlink_after=False)
     importer.run()
 
