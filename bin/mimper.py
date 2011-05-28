@@ -36,9 +36,7 @@ class Importer(object):
         NB: It is assumed that these paths are on the same partition (and it
             supports hard links)
         """
-        audio_files = cls.get_filelist(from_dir)
-
-        for audio_file in audio_files:
+        for audio_file in cls.get_filelist(from_dir):
             from_path = audio_file.filename
             to_path = os.path.join(to_dir, audio_file.destination)
 
