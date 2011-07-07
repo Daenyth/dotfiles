@@ -274,7 +274,7 @@ esac
 
 have tree && alias tree='tree -Chs'
 
-have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/cdrom'
+have wodim && alias burn='sudo /usr/bin/wodim dev=/dev/scd0'
 have less && alias more='less'
 if have mpc; then
     have ompload && alias ompnp='ompload "$HOME/Music/`mpc --format %file% |head -n1`"'
