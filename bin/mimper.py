@@ -153,7 +153,7 @@ class AudioFile(object):
             else:
                 print "Warning: %s does not have Album/Track tags set. Continuing anyway" % filename
 
-        if '/' in track:
+        if track is not None and '/' in track:
             # Some fools tag as x/y where y = total tracks
             track = track.split("/")[0]
 
