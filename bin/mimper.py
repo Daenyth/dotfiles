@@ -78,7 +78,7 @@ class Importer(object):
             try:
                 audio_file = AudioFile(mutagen_file)
             except ValueError as e:
-                print "Skipping file: " + e
+                print "Skipping file: " + str(e)
             audio_files.append(audio_file)
 
         return audio_files
@@ -109,7 +109,7 @@ class AudioFile(object):
         try:
             self.destination = self.get_destination(mutagen_file)
         except ValueError as e:
-            raise ValueError("Unable to determine destination path: " + e)
+            raise ValueError("Unable to determine destination path: " + str(e))
 
     @staticmethod
     def get_destination(mutagen_file):
