@@ -4,8 +4,10 @@
 Scan incoming directory for new music and import them to the library
 """
 
-import os
+import argparse
 import errno
+import os
+import sys
 
 import mutagen
 
@@ -189,9 +191,15 @@ def makedirs(path):
             raise
 
 if __name__ == '__main__':
-    from_dir = os.path.expanduser('~/Dropbox/Music')
-    to_dir = os.path.expanduser('~/Media/Music')
+    parser = argparse.ArgumentParser(description='Import music from one directory into another, sorted by audio metadata')
+    parser.add_argument('--from-dir', '-f', dest='from_dir',
+                        type=os.path.expanduser, default='~/Dropbox',
+                        help='Directory to import music from')
+    parser.add_argument('--to-dir', '-t', dest='to_dir',
+                        type=os.path.expanduser, default='~/Media/Music',
+                        help='Root directory that music gets imported to')
+    options = parser.parse_args(sys.argv[1:])
 
-    importer = Importer(from_dir, to_dir, unlink_after=False)
+    importer = Importer(options.from_dir, options.to_dir, unlink_after=False)
     importer.run()
 
