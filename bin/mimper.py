@@ -165,7 +165,7 @@ class AudioFile(object):
         else:
             target_path = os.path.join(artist, album, "%0.2d %s.%s" % (int(track), title, ext))
 
-        return target_path
+        return target_path.replace("\0", '')
 
     @property
     def filename(self):
