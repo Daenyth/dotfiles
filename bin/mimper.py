@@ -4,8 +4,10 @@
 Scan incoming directory for new music and import them to the library
 """
 
-import os
+import argparse
 import errno
+import os
+import sys
 
 import mutagen
 
@@ -25,6 +27,8 @@ class Importer(object):
     def run(self):
         """
         Run the importer with the initialized settings
+
+        Python won't allow this to be named 'import'.
         """
         self.import_files(self.incoming, self.music_root, self.unlink_after)
 
@@ -36,7 +40,9 @@ class Importer(object):
         NB: It is assumed that these paths are on the same partition (and it
             supports hard links)
         """
-        for audio_file in cls.get_filelist(from_dir):
+        audio_files = cls.get_filelist(from_dir)
+
+        for audio_file in audio_files:
             from_path = audio_file.filename
             to_path = os.path.join(to_dir, audio_file.destination)
 
@@ -74,7 +80,7 @@ class Importer(object):
             try:
                 audio_file = AudioFile(mutagen_file)
             except ValueError as e:
-                print "Skipping file: " + e
+                print "Skipping file: " + str(e)
             audio_files.append(audio_file)
 
         return audio_files
@@ -105,7 +111,7 @@ class AudioFile(object):
         try:
             self.destination = self.get_destination(mutagen_file)
         except ValueError as e:
-            raise ValueError("Unable to determine destination path: " + e)
+            raise ValueError("Unable to determine destination path: " + str(e))
 
     @staticmethod
     def get_destination(mutagen_file):
@@ -185,9 +191,15 @@ def makedirs(path):
             raise
 
 if __name__ == '__main__':
-    from_dir = os.path.expanduser('~/stuff/Dropbox/Dropbox/Music')
-    to_dir = os.path.expanduser('~/Media/Music')
+    parser = argparse.ArgumentParser(description='Import music from one directory into another, sorted by audio metadata')
+    parser.add_argument('--from-dir', '-f', dest='from_dir',
+                        type=os.path.expanduser, default='~/Dropbox',
+                        help='Directory to import music from')
+    parser.add_argument('--to-dir', '-t', dest='to_dir',
+                        type=os.path.expanduser, default='~/Media/Music',
+                        help='Root directory that music gets imported to')
+    options = parser.parse_args(sys.argv[1:])
 
-    importer = Importer(from_dir, to_dir, unlink_after=True)
+    importer = Importer(options.from_dir, options.to_dir, unlink_after=False)
     importer.run()
 
