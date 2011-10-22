@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 
 order = ("artist", "album", "track", "title", "file")
 
