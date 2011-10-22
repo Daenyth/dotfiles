@@ -26,7 +26,7 @@
 
 [submenu] (IM)
       [exec]   (pidgin) {pidgin}
-      [exec]   (skype) {skype}
+      [exec]   (skype) {LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so skype}
 [end]
 
 
