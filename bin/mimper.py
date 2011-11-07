@@ -198,8 +198,10 @@ if __name__ == '__main__':
     parser.add_argument('--to-dir', '-t', dest='to_dir',
                         type=os.path.expanduser, default='~/Media/Music',
                         help='Root directory that music gets imported to')
+    parser.add_argument('-d', '--delete-after', action='store_true', dest='delete_after', default=False,
+                        help='If passed, delete files after they are moved.')
     options = parser.parse_args(sys.argv[1:])
 
-    importer = Importer(options.from_dir, options.to_dir, unlink_after=False)
+    importer = Importer(options.from_dir, options.to_dir, unlink_after=options.delete_after)
     importer.run()
 
