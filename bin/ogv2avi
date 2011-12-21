@@ -1,0 +1,7 @@
+#!/bin/bash
+
+inputfile=$1
+outputfile=$2
+
+mencoder -idx "$inputfile" -ovc lavc -oac mp3lame -o "$outputfile"
+
