@@ -7,6 +7,7 @@ Scan incoming directory for new music and import them to the library
 import argparse
 import errno
 import os
+import shutil
 import sys
 
 import mutagen
@@ -36,9 +37,6 @@ class Importer(object):
     def import_files(cls, from_dir, to_dir, unlink_after):
         """
         Import audio files from from_dir into to_dir
-
-        NB: It is assumed that these paths are on the same partition (and it
-            supports hard links)
         """
         audio_files = cls.get_filelist(from_dir)
 
@@ -48,10 +46,14 @@ class Importer(object):
 
             makedirs(os.path.split(to_path)[0])
 
-            # Hardlink here because we may not have write permission on the
-            #  source, so a move would fail, but we still want it put into the library
             try:
-                os.link(from_path, to_path)
+                if on_same_partition(from_path, to_path):
+                    # Hardlink here because we may not have write permission on the
+                    #  source, so a move would fail, but we still want it put into the library.
+                    # It also saves space if we're not deleting the file after
+                    os.link(from_path, to_path)
+                else:
+                    shutil.copy(from_path, to_path)
             except OSError as e:
                 if e.errno == errno.EEXIST:
                     print "Warning: Target file already exists: %s. Skipping" % to_path
@@ -189,6 +191,12 @@ def makedirs(path):
             pass
         else:
             raise
+
+def on_same_partition(path1, path2):
+    """
+    Return True if path1 and path2 are both on the same partition
+    """
+    return os.stat(path1).st_dev == os.stat(path2).st_dev
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Import music from one directory into another, sorted by audio metadata')
