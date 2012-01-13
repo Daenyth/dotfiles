@@ -47,7 +47,7 @@ class Importer(object):
             makedirs(os.path.split(to_path)[0])
 
             try:
-                if on_same_partition(from_path, to_path):
+                if on_same_partition(from_path, os.path.dirname(to_path)):
                     # Hardlink here because we may not have write permission on the
                     #  source, so a move would fail, but we still want it put into the library.
                     # It also saves space if we're not deleting the file after
