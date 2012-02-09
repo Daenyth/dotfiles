@@ -40,5 +40,4 @@ let Tlist_File_Fold_Auto_Close = 1 " Fold away tags for non-active files
 
 " :make for haskell
 au BufEnter *.hs compiler ghc
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python set completeopt=menu

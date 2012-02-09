@@ -23,6 +23,7 @@
 # CLI util configs
 !.screenrc
 !.vimrc
+!.vim/
 !.ncmpc/config
 !.bashpodder/*
 !.rtorrent.rc
