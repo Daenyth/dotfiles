@@ -30,9 +30,9 @@ com! DiffSaved call s:DiffWithSaved()
 ""sudo vim file" (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
 
-" Vim+Eclipse integration
-let g:EclimHome = '/usr/share/vim/vimfiles/eclim'
-let g:EclimEclipseHome = '/usr/share/eclipse'
+" Pressing "K" takes you to the documentation for the word under the cursor.
+autocmd filetype python source /usr/share/vim/vimfiles/ftplugin/python/pydoc.vim
+let python_highlight_all = 1
 
 " Tag List options
 let Tlist_Exit_OnlyWindow = 1 " Close if Tlist is the only window
@@ -41,3 +41,7 @@ let Tlist_File_Fold_Auto_Close = 1 " Fold away tags for non-active files
 " :make for haskell
 au BufEnter *.hs compiler ghc
 autocmd FileType python set completeopt=menu
+
+" Syntastic plugin options
+let g:syntastic_check_on_open=1
+
